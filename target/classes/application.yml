@@ -1,0 +1,20 @@
+#set up properties
+PROJECT_ID: parking-lot-ec673
+
+server:
+    port: ${DEFAULT_PORT:8080}
+
+spring:
+    cloud:
+        config:
+            namespace: default
+            enabled: true
+            name: Cloud
+            profile: dev, cloud, firestore
+            label: master
+        gcp:
+            credentials:
+                location: classpath:key.json  
+            firestore:
+                project-id: ${PROJECT_ID:parking-lot-ec673}
+                enabled: true
